@@ -1,0 +1,129 @@
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    }
+body {
+    height:100%;
+    background-color: #f4f4f4;
+    font-family: 'Abel', sans-serif;
+    background:linear-gradient(rgba(255, 187, 0, 0.85), 5%,rgba(255, 123, 0, 0.125) 85%) fixed;
+
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #ecd28f;
+    text-shadow: 1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black,
+    2px 2px 4px #7c4404;
+    letter-spacing: 2px;
+}
+h1 {
+    color:#ff8800;
+    font-size: 2.5em;
+}
+.kale {
+    color: #037215
+}
+p {
+    color: #78391a;
+
+}
+img {
+    border: 2px solid #3c6d8a;
+    width: 98%;
+    max-width: 100%;
+}
+figure {
+    width:100%;
+    margin: 1.5em 0;
+    padding: 0;
+}
+figcaption {
+    color: #866a38
+}
+li {
+    line-height: 1.75;
+}
+a:link {
+    color: #037215;
+    transition: .5s;
+}
+a:visited {
+    color: #6fbd68;
+}
+a:hover {
+    color: #ff8800;
+    transition: 1.5s;
+}
+a:focus {
+    color: red;
+}
+a:active {
+    color: #ab3c99;
+}
+.top {
+    padding:0 2%;
+}
+.left,.right {
+    background-color: rgba(255,255,255,0.65);
+}
+.left,.right {
+    margin: .25em 2%;
+    padding: 1em 2.5%;
+}
+.intro {
+    margin:0;
+    padding: 1em 2.5%;
+    background:linear-gradient(rgba(127,63,31,0.65) 2.5%,rgba(240,220,185,0.125) 99%);
+    color: #037215;
+}
+footer.page-footer {
+    clear: both;
+    margin-top: 2em;
+    padding: 2em;
+    text-align: center;
+    background-color:rgba(255,205,66,0.85)
+}
+/*
+** Media queries
+ */
+@media (min-width:515px) {
+    body {
+        background:linear-gradient(rgba(255, 115, 0, 0.85), 5%,rgba(255, 251, 35, 0.541) 85%) fixed;
+     }
+}@media (min-width:590px) {
+    body {
+        background:linear-gradient(rgba(173, 255, 66, 0.85), 5%,rgba(220,180,150,0.125) 85%) fixed;
+     }    h1 {
+        font-size: 2.75em;
+    }
+}
+@media (min-width:700px) {
+    body {
+       background:linear-gradient(rgba(255, 251, 0, 0.85), 5%,rgba(255, 238, 0, 0.125) 85%) fixed;
+    }
+    h1 {
+        background:linear-gradient(90deg,green, yellow);
+        padding:.25em 2.5%;
+        color:#ff8800;
+    }
+    h2 {
+        font-size: 1.25em;
+    }
+    .left {
+        float: left;
+        width:40%;
+        margin-right: 10px;
+    }
+    .right {
+        float:right;
+        width:40%;
+    }
+@media (min-width:772px) {
+    h1 {
+        font-size: 2em;
+    }
+}
