@@ -1,6 +1,7 @@
 # Project Secrets
 .my-secret-keys
 test-file-to-ignore.txt
+another-file-to-ignore.txt
 # Project-generated files
 package-lock.json
 # Locally-generated files
