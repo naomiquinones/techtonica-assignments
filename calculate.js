@@ -24,4 +24,18 @@ console.log(
   calculate( 3, "*", 2 ),
   calculate( 3, "/", 2 ),
   calculate( 3, "%", 2 )
-);  
+);
+
+/*
+
+Challenge
+Here are some other ways you can extend your calculator. Choose whichever one(s) sound most interesting to you!
+
+Add the ability to use a square root.
+Add the ability to use exponents.
+Add the ability to use constants, such as pi (3.14).
+Add the ability to operate on a third number.
+Incorporate a function from the Math library.
+
+
+*/
