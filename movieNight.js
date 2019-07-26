@@ -1,46 +1,51 @@
 
-const movieNight = (theGroup) => {
-    const add = (name) => theGroup.push(name);
-    const drop = (name) => theGroup.splice(theGroup.indexOf(name));
-    const d = theGroup.includes('David');
-    const m = theGroup.includes('Ming');
-    const p = theGroup.includes('Priya');
-    const a = theGroup.includes('Alex');
-    const b = theGroup.includes('Breanna');
-        // Priya will attend only if Ming goes.
-        // David loves popcorn and will go to the movies under any circumstance
-        // Alex will automatically go to the movies if David goes, and will automatically not go to the movies if David does not go
-        // Ming will not attend if David has already said he is attending and Ming will say yes if Priya says yes.
-        // Breanna loves to be around people and will only go if there are at least 2 others going
+const movieNight = (startingGroup) => {
+    let going = [];
+    const add = (name) => going.push(name);
 
-    // console.log(theGroup.includes('David'))
+    // don't need drop subfxn anymore but JIC decide to modify original array again, will leave for now
+    // const drop = (name) => going.splice(startingGroup.indexOf(name));
 
-    if ( d ) {
-        if ( !a ) {
-            add('Alex');
-        }
-        if ( m ) {
-            drop('Ming');
-        }
+    const d = startingGroup.includes('David');
+    const m = startingGroup.includes('Ming');
+    const p = startingGroup.includes('Priya');
+    const a = startingGroup.includes('Alex');
+    const b = startingGroup.includes('Breanna');
+
+    // David loves popcorn and will go to the movies under any circumstance
+    // Alex will automatically go to the movies if David goes, and will automatically not go to the movies if David does not go
+    // if David, add Alex to final group
+    // if Alex and !David, don't add (i.e. do nothing)
+    if (d) {
+        add('David');
+        add('Alex');
     }
-    if ( m && (!p) ) {
-        add('Priya');
-    }
-    if ( p && (!m) ) {
+    // Ming will not attend if David has already said he is attending and Ming will say yes if Priya says yes.
+    // if Ming && David, don't add Ming to final group
+    // i.e. if Ming && !David, add Ming to final group
+    // if Priya, add Ming
+    if ((p || m) && !d) {
         add('Ming');
     }
-    if ( a && !d) {
-        drop('Alex');
+    // if (p && !d && !m) {
+    //     add('Ming');
+    // }
+    // Priya will attend only if Ming goes.
+    // if Ming and !Priya, add Priya
+    if ((p && !d) || (m && !p && !d)) {
+        add('Priya');
     }
-    if ( theGroup.length >= 2 && !b) {
+    // Breanna loves to be around people and will only go if there are at least 2 others going
+    // if there's 2 or more people, add Breanna
+    if (going.length >= 2) {
         add('Breanna');
     }
 
-    return theGroup;
+    return going;
 }
 
 
-document.write( 
+document.write(
     "['Priya', 'David', 'Alex'] = ['David', 'Alex', 'Breanna'] &nbsp;&nbsp;<span style='color:red'>",
     movieNight(['Priya', 'David', 'Alex']),
     "</span><br><br>['Priya', 'David', 'Ming'] = ['David', 'Alex', 'Breanna'] &nbsp;&nbsp;<span style='color:red'>",
@@ -59,10 +64,10 @@ document.write(
     movieNight(['Alex', 'Ming', 'Priya']),
     "</span><br><br>['David', 'Breanna', 'Ming'] = ['David', 'Alex', 'Breanna'] &nbsp;&nbsp;<span style='color:red'>",
     movieNight(['David', 'Breanna', 'Ming']),
-    "</span><br><br>['Priya', 'David', 'Breanna'] = ['David', 'Alex', 'Breanna'] &nbsp;&nbsp;<span style='color:red'>", 
-    movieNight(['Priya', 'David', 'Breanna']),"</span>"  
+    "</span><br><br>['Priya', 'David', 'Breanna'] = ['David', 'Alex', 'Breanna'] &nbsp;&nbsp;<span style='color:red'>",
+    movieNight(['Priya', 'David', 'Breanna']), "</span>"
 );
-/* 
+/*
 
 
 */
