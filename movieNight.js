@@ -1,16 +1,16 @@
-
 const movieNight = (startingGroup) => {
     let going = [];
-    const add = (name) => going.push(name);
-
+    const add = name => going.push(name);
+    
     // don't need drop subfxn anymore but JIC decide to modify original array again, will leave for now
     // const drop = (name) => going.splice(startingGroup.indexOf(name));
 
-    const d = startingGroup.includes('David');
-    const m = startingGroup.includes('Ming');
-    const p = startingGroup.includes('Priya');
-    const a = startingGroup.includes('Alex');
-    const b = startingGroup.includes('Breanna');
+    const yes = name => startingGroup.includes(name);
+    const d = yes('David');
+    const m = yes('Ming');
+    const p = yes('Priya');
+    const a = yes('Alex');
+    const b = yes('Breanna');
 
     // David loves popcorn and will go to the movies under any circumstance
     // Alex will automatically go to the movies if David goes, and will automatically not go to the movies if David does not go
