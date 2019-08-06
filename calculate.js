@@ -15,6 +15,7 @@ const calculate = ( num1, operator, num2 ) => {
          (operator === '*') ? num1 * num2:
          (operator === '/') ? num1 / num2:
          (operator === '%') ? num1 % num2: 
+         (operator === 'exp') ? Math.pow(num1,num2):
          "try an arithmetic operator";
 }
 
@@ -23,7 +24,8 @@ console.log(
   calculate( 3, "-", 2 ),
   calculate( 3, "*", 2 ),
   calculate( 3, "/", 2 ),
-  calculate( 3, "%", 2 )
+  calculate( 3, "%", 2 ),
+  calculate(3, "exp", 2)
 );
 
 /*
@@ -37,5 +39,5 @@ Add the ability to use constants, such as pi (3.14).
 Add the ability to operate on a third number.
 Incorporate a function from the Math library.
 
-
 */
+
