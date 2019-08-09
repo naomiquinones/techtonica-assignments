@@ -1,0 +1,34 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0
+}
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 115%;
+  background-image: radial-gradient(rgba(253, 248, 248, 0.85),rgba(200,190,190,0.75) 80%);
+  line-height: 1.5;
+}
+h1 {
+  color: rgb(0, 83, 83);
+}
+ul, ol {
+  list-style-position: inside;
+}
+#event li {
+  padding: 1rem auto 1.25rem;
+  border-bottom: 1px solid white;
+  
+}
+#event li:last-child {
+  border: none;
+}
+.page-header {
+  padding: 1.25rem 2.5% 1rem;
+  background-color: lightseagreen;
+}
+.event-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 83, 83);
+}
