@@ -6,7 +6,7 @@ html, body {
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 115%;
-  background-image: radial-gradient(rgba(253, 248, 248, 0.85),rgba(200,190,190,0.75) 80%);
+  background-image: linear-gradient(rgba(253, 248, 248, 0.85),rgba(200,190,190,0.75) 90%);
   line-height: 1.5;
 }
 h1 {
