@@ -13,6 +13,7 @@ class Event {
     this.availableTickets.push(ticket);
   }
   searchTickets(minPrice, maxPrice) {
+    console.log('minPrice: ',minPrice,'maxPrice: ',maxPrice)
     // make message variable to hold string
     let message = "Eligible tickets: ";
 
@@ -70,42 +71,25 @@ class Event {
     // hours = hours ? hours : 12; // the hour '0' should be '12'
     // minutes = minutes < 10 ? "0" + minutes : minutes;
 
-    // day = 0
-    //   ? "Sunday"
-    //   : 1
-    //   ? "Monday"
-    //   : 2
-    //   ? "Tuesday"
-    //   : 3
-    //   ? "Wednesday"
-    //   : 4
-    //   ? "Thursday"
-    //   : 5
-    //   ? "Friday"
+    // day = 0 ? "Sunday"
+    //   : 1 ? "Monday"
+    //   : 2 ? "Tuesday"
+    //   : 3 ? "Wednesday"
+    //   : 4 ? "Thursday"
+    //   : 5 ? "Friday"
     //   : "Saturday";
 
-    // month = 0
-    //   ? "January"
-    //   : 1
-    //   ? "February"
-    //   : 2
-    //   ? "March"
-    //   : 3
-    //   ? "April"
-    //   : 4
-    //   ? "May"
-    //   : 5
-    //   ? "June"
-    //   : 6
-    //   ? "July"
-    //   : 7
-    //   ? "August"
-    //   : 8
-    //   ? "September"
-    //   : 9
-    //   ? "October"
-    //   : 10
-    //   ? "November"
+    // month = 0 ? "January"
+    //   : 1 ? "February"
+    //   : 2 ? "March"
+    //   : 3 ? "April"
+    //   : 4 ? "May"
+    //   : 5 ? "June"
+    //   : 6 ? "July"
+    //   : 7 ? "August"
+    //   : 8 ? "September"
+    //   : 9 ? "October"
+    //   : 10 ? "November"
     //   : "December";
     // let strTime = `${day}, ${month} ${date}, ${year} at ${hours}:${minutes} ${ampm}`;
     // return strTime;
@@ -237,33 +221,37 @@ $(document).ready(function() {
   // update search based on changed input values
   // needs fixing
   $("#min-price")
-    .on("keydown", () => {
-      $(".price-search-results").empty();
-    })
+    // .on("keydown", () => {
+    //   $(".price-search-results").empty();
+    // })
     .on("change", () => {
       // console.log('min price change')
       let newSearchHtml = "";
       $.each(event_array, function(index, item) {
-        console.log($("#min-price").value); //doesn't retrieve value
+        // console.log('debug item= ',item);
+        // console.log('$min-price: ',$("#min-price"));
+        // console.log($("#min-price")[0].value); //doesn't retrieve value
         newSearchHtml = `${item.searchTickets(
-          $("#min-price").value,
-          $("#max-price").value
+          $("#min-price")[0].value,
+          $("#max-price")[0].value
         )}`;
+        console.log('from min price change: ',newSearchHtml);
         $(".price-search-results").html(newSearchHtml);
       });
     });
   $("#max-price")
-    .on("keydown", () => {
-      $(".price-search-results").empty();
-    })
+    // .on("keydown", () => {
+    //   $(".price-search-results").empty();
+    // })
     .on("change", () => {
       // console.log('max price change')
       let newSearchHtml = "";
       $.each(event_array, function(index, item) {
         newSearchHtml = `${item.searchTickets(
-          $("#min-price").value,
-          $("#max-price").value
+          $("#min-price")[0].value,
+          $("#max-price")[0].value
         )}`;
+        console.log('from max price change: ',newSearchHtml)
         $(".price-search-results").html(newSearchHtml);
       });
     });

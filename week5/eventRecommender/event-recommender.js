@@ -1,3 +1,13 @@
+
+/*  -------------------------------------  */
+class User {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.personalEvents = [];
+  }
+}
+
 class EventRecommender {
   constructor() {
     // All main properties should go here.
@@ -6,14 +16,16 @@ class EventRecommender {
     this.users = [];
   }
 
-  addEvent(event) {
+  addEvent(name, description, dateTime) {
+    const event = new Event(name, description, dateTime);
     // Adds a new Event to the System
     this.events.push(event);
   }
 
-  addUser(user) {
+  addUser(firstName,lastName) {
+    const person = new User(firstName,lastName);
     // Adds a new User to the System
-    this.users.push(user);
+    this.users.push(person);
   }
 
   saveUserEvent(user, event) {
@@ -33,10 +45,7 @@ class EventRecommender {
   filter() {}
 }
 
-class User {
-  constructor(firstName, lastName, personalEvents) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.personalEvents = personalEvents;
-  }
-}
+const recommender = new EventRecommender();
+
+recommender.addUser('Linda','Yoshida');
+console.log(recommender);
