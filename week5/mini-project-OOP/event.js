@@ -113,7 +113,7 @@ class Event {
   findCheapestTicket() {
     let available = this.availableTickets;
     let numTickets = available.length;
-    
+
     // set cheapest ticket info to first ticket in event
     let startingTicket = available[0];
     // console.log(startingTicket);
@@ -195,9 +195,14 @@ $(document).ready(function() {
   // loop through the event array
   $.each(event_array, function(index, item) {
     // add the item and description inside an li into the html string
-    html += `<li><span class="event">${item.name} - ${ item.description } </span> <br>
+    html += `<li><span class="event">${item.name} - ${
+      item.description
+    } </span> <br>
     <span class="date">${item.getDate()}</span> <br>
-    <span class="price-search-results">${item.searchTickets(minPrice, maxPrice)}</span><br>
+    <span class="price-search-results">${item.searchTickets(
+      minPrice,
+      maxPrice
+    )}</span><br>
     <span class="cheap-ticket-ad">Cheapest ticket for this event is "${item.findCheapestTicket(
       "cheapest"
     )}"</span></li>`;
@@ -206,50 +211,60 @@ $(document).ready(function() {
   $("#event").html(html);
 
   // make minPrice and maxPrice input elements for user
-  let minPriceInput = document.createElement('input');
-  minPriceInput.type = 'number';
+  let minPriceInput = document.createElement("input");
+  minPriceInput.type = "number";
   minPriceInput.min = 0;
-  minPriceInput.id = 'min-price';
+  minPriceInput.id = "min-price";
   minPriceInput.value = minPrice;
 
-  let maxPriceInput = document.createElement('input');
-  maxPriceInput.type = 'number';
+  let maxPriceInput = document.createElement("input");
+  maxPriceInput.type = "number";
   maxPriceInput.min = 0;
-  maxPriceInput.id = 'max-price';
+  maxPriceInput.id = "max-price";
   maxPriceInput.value = maxPrice;
 
   // make labels for the minPrice and maxPrice elements
-  let minLabel = document.createElement('label');
-  let maxLabel = document.createElement('label');
-  minLabel.htmlFor = 'min-price';
-  maxLabel.htmlFor = 'max-price';
-  minLabel.textContent = 'Minimum price';
-  maxLabel.textContent = 'Maximum price';
-  
+  let minLabel = document.createElement("label");
+  let maxLabel = document.createElement("label");
+  minLabel.htmlFor = "min-price";
+  maxLabel.htmlFor = "max-price";
+  minLabel.textContent = "Minimum price";
+  maxLabel.textContent = "Maximum price";
+
   // insert inputs for user to specify min and max price
-  $("#event").after(minLabel,minPriceInput, maxLabel,maxPriceInput);
+  $("#event").after(minLabel, minPriceInput, maxLabel, maxPriceInput);
 
   // update search based on changed input values
   // needs fixing
-  $('#min-price').on('keydown', () => {
-    $('.price-search-results').empty();
-  }).on('change', () => {
-    // console.log('min price change')
-    let newSearchHtml = '';
-    $.each(event_array,function(index,item) {
-      console.log($('#min-price').value)//doesn't retrieve value
-      newSearchHtml = `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
-      $('.price-search-results').html(newSearchHtml)
-    });
-  });
-  $('#max-price').on('keydown', () => {
-    $('.price-search-results').empty();
-  }).on('change', () => {
-    // console.log('max price change')
-    let newSearchHtml = '';
-     $.each(event_array,function(index,item) {
-       newSearchHtml = `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
-       $('.price-search-results').html(newSearchHtml)
+  $("#min-price")
+    .on("keydown", () => {
+      $(".price-search-results").empty();
+    })
+    .on("change", () => {
+      // console.log('min price change')
+      let newSearchHtml = "";
+      $.each(event_array, function(index, item) {
+        console.log($("#min-price").value); //doesn't retrieve value
+        newSearchHtml = `${item.searchTickets(
+          $("#min-price").value,
+          $("#max-price").value
+        )}`;
+        $(".price-search-results").html(newSearchHtml);
       });
-  });
+    });
+  $("#max-price")
+    .on("keydown", () => {
+      $(".price-search-results").empty();
+    })
+    .on("change", () => {
+      // console.log('max price change')
+      let newSearchHtml = "";
+      $.each(event_array, function(index, item) {
+        newSearchHtml = `${item.searchTickets(
+          $("#min-price").value,
+          $("#max-price").value
+        )}`;
+        $(".price-search-results").html(newSearchHtml);
+      });
+    });
 }); // end jquery
