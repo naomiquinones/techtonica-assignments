@@ -32,3 +32,11 @@ class EventRecommender {
   filter(){
   }
 }
+
+class User {
+  constructor(firstName, lastName, personalEvents) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.personalEvents = personalEvents;
+  }
+}

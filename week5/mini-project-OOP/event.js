@@ -136,7 +136,7 @@ class Event {
       }
     }
     // return it formatted
-    return `${cheapestTicketName} : $ ${cheapestTicketPrice}`;
+    return `${cheapestTicketName} : $${cheapestTicketPrice}`;
   }
 }
 
@@ -230,20 +230,21 @@ $(document).ready(function() {
   $("#event").after(minLabel,minPriceInput, maxLabel,maxPriceInput);
 
   // update search based on changed input values
+  // needs fixing
   $('#min-price').on('change', function(){
     console.log('min price change')
     let newSearchHtml = '';
     $.each(event_array,function(index,item) {
-      newSearchHtml += `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
+      newSearchHtml = `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
+      $('#price-search-results').html(newSearchHtml)
     });
-    $('#price-search-results').html(newSearchHtml)
   });
   $('#max-price').on('change', function(){
     console.log('max price change')
     let newSearchHtml = '';
      $.each(event_array,function(index,item) {
-       newSearchHtml += `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
+       newSearchHtml = `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
+       $('#price-search-results').html(newSearchHtml)
       });
-      $('#price-search-results').html(newSearchHtml)
   });
 }); // end jquery
