@@ -19,9 +19,10 @@ ul, ol {
   background-color: rgba(250,250,250,0.5);
   border-radius: 5px;
   padding: 1rem 2.5%;
+  list-style-type: none;
 }
 #event li {
-  padding: 1rem auto 1.25rem;
+  padding: 1rem 2.5% 1.25rem;
   border-bottom: 1px solid white;
   margin-bottom: .5rem;
   
@@ -37,7 +38,7 @@ ul, ol {
   padding: 1.25rem 2.5% 1rem;
   background-color: lightseagreen;
 }
-.event-name {
+.event {
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(0, 83, 83);
@@ -54,6 +55,13 @@ ul, ol {
   padding: .25rem 2.5%;
 }
 
+label,#min-price,#max-price {
+  display: inline-block;
+  width: 48.5%;
+  font-size: 2em;
+  color: rgb(0, 83, 83);
+  text-align: center;
+}
 @media (min-width:768px) {
   #event {
     margin: 0 auto;

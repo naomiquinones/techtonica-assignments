@@ -7,13 +7,14 @@ class EventRecommender {
   
   }
 
-  addEvent(eventName, eventDescription, eventDate) {
+  addEvent(event) {
   // Adds a new Event to the System
-  this.events.push([eventName,eventDescription,eventDate]);
+  this.events.push(event);
   }
 
-  addUser(userName, userId) {
+  addUser(user) {
   // Adds a new User to the System
+  this.users.push(user)
   }
 
   saveUserEvent(){
