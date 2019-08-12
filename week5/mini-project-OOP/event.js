@@ -116,7 +116,7 @@ class Event {
     
     // set cheapest ticket info to first ticket in event
     let startingTicket = available[0];
-    console.log(startingTicket);
+    // console.log(startingTicket);
     // separate name and price so can add them to formatted string later
     let cheapestTicketName = startingTicket.ticketType;
     let cheapestTicketPrice = startingTicket.ticketPrice;
@@ -197,7 +197,7 @@ $(document).ready(function() {
     // add the item and description inside an li into the html string
     html += `<li><span class="event">${item.name} - ${ item.description } </span> <br>
     <span class="date">${item.getDate()}</span> <br>
-    <span id="price-search-results">${item.searchTickets(minPrice, maxPrice)}</span><br>
+    <span class="price-search-results">${item.searchTickets(minPrice, maxPrice)}</span><br>
     <span class="cheap-ticket-ad">Cheapest ticket for this event is "${item.findCheapestTicket(
       "cheapest"
     )}"</span></li>`;
@@ -231,20 +231,25 @@ $(document).ready(function() {
 
   // update search based on changed input values
   // needs fixing
-  $('#min-price').on('change', function(){
-    console.log('min price change')
+  $('#min-price').on('keydown', () => {
+    $('.price-search-results').empty();
+  }).on('change', () => {
+    // console.log('min price change')
     let newSearchHtml = '';
     $.each(event_array,function(index,item) {
+      console.log($('#min-price').value)//doesn't retrieve value
       newSearchHtml = `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
-      $('#price-search-results').html(newSearchHtml)
+      $('.price-search-results').html(newSearchHtml)
     });
   });
-  $('#max-price').on('change', function(){
-    console.log('max price change')
+  $('#max-price').on('keydown', () => {
+    $('.price-search-results').empty();
+  }).on('change', () => {
+    // console.log('max price change')
     let newSearchHtml = '';
      $.each(event_array,function(index,item) {
        newSearchHtml = `${item.searchTickets($('#min-price').value,$('#max-price').value)}`;
-       $('#price-search-results').html(newSearchHtml)
+       $('.price-search-results').html(newSearchHtml)
       });
   });
 }); // end jquery
