@@ -135,4 +135,8 @@ $(document).ready(function() {
 
   // insert inputs for user to specify min and max price
   $("#event").after(minLabel, minPriceInput, maxLabel, maxPriceInput);
+
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
 }); // end jquery
