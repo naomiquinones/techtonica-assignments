@@ -12,10 +12,25 @@ class Event {
     // const ticket = new Ticket(ticketType, ticketPrice);
     this.availableTickets.push(ticket);
   }
+
+  matchedTickets(minPrice, maxPrice) {
+    let matched = [];
+    // loop through available tickets
+    for (let i = 0; i < this.availableTickets.length; i++) {
+      // if the ticket price is in the range defined by min and max
+      if (
+        this.availableTickets[i].ticketPrice >= minPrice &&
+        this.availableTickets[i].ticketPrice <= maxPrice
+      ) {
+        matched.push(this.availableTickets[i]);
+      }
+    }
+    return matched;
+  }
+
   searchTickets(minPrice, maxPrice) {
-    console.log('minPrice: ',minPrice,'maxPrice: ',maxPrice)
+    console.log("minPrice: ", minPrice, "maxPrice: ", maxPrice);
     // make message variable to hold string
-    let message = "Eligible tickets: ";
 
     // if there are no tickets exit and say it's sold out
     if (this.availableTickets.length === 0) {
@@ -31,28 +46,31 @@ class Event {
       return "Please list the minimum price before the maximum price";
     }
 
-    // reset message because there should be at least one ticket to check
-    // message = "Eligible tickets: ";
-    // // set a counter to track how many tickets match
-    let counter = 0;
-    // loop through available tickets
-    for (let i = 0; i < this.availableTickets.length; i++) {
-      // if the ticket price is in the range defined by min and max
-      if (
-        this.availableTickets[i].ticketPrice >= minPrice &&
-        this.availableTickets[i].ticketPrice <= maxPrice
-      ) {
-        // add the ticket info to the message
-        message += i + 1 + ". " + this.availableTickets[i].ticketType + " ";
-        counter++;
-      }
-    }
-    if (counter === 0) {
-      // counter at 0 means no tickets in the range
-      message = "No tickets available in this price range";
+    const matched = this.matchedTickets(minPrice, maxPrice);
+
+    // if matched array is empty, there were no tickets in the price range
+    if (matched.length === 0) {
+      return "No tickets available in this price range";
     }
 
-    return message;
+    let messageParts = [];
+    matched.forEach((ticket, idx) => {
+      messageParts.push({ idx, text: ticket.ticketType });
+    });
+
+    // messageParts.forEach(message => {
+    //   message += message.idx + '. ' + message.text
+    // })
+    // return message;
+
+    // find matching tickets
+    let message = "Eligible tickets: <br>";
+    return (
+      message +
+      messageParts
+        .map(message => message.idx + 1 + ". " + message.text)
+        .join("<br>")
+    );
   }
 
   getDate() {
@@ -220,7 +238,16 @@ $(document).ready(function() {
 
   // update search based on changed input values
   // needs fixing
-  $("#min-price")
+
+  // version two
+
+  // get item title
+
+  // run searchTickets for that event
+
+  // update the price-search-results span
+
+  /*   $("#min-price")
     // .on("keydown", () => {
     //   $(".price-search-results").empty();
     // })
@@ -235,7 +262,7 @@ $(document).ready(function() {
           $("#min-price")[0].value,
           $("#max-price")[0].value
         )}`;
-        console.log('from min price change: ',newSearchHtml);
+        console.log("from min price change: ", newSearchHtml);
         $(".price-search-results").html(newSearchHtml);
       });
     });
@@ -251,8 +278,9 @@ $(document).ready(function() {
           $("#min-price")[0].value,
           $("#max-price")[0].value
         )}`;
-        console.log('from max price change: ',newSearchHtml)
+        console.log("from max price change: ", newSearchHtml);
         $(".price-search-results").html(newSearchHtml);
       });
     });
+ */
 }); // end jquery
