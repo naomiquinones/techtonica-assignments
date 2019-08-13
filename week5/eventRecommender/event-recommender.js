@@ -1,4 +1,23 @@
-
+/*  -------------------------------------  */
+/* * EVENT CLASS* */
+/*  -------------------------------------  */
+class Event {
+  constructor(name, dateTime) {
+    this.name = name,
+    this.dateTime = dateTime
+  }
+}
+/*  -------------------------------------  */
+/* * TICKET CLASS* */
+/*  -------------------------------------  */
+class Ticket {
+  constructor(type,price) {
+    this.type = type,
+    this.price = price
+  }
+}
+/*  -------------------------------------  */
+/* * USER CLASS* */
 /*  -------------------------------------  */
 class User {
   constructor(firstName, lastName) {
@@ -7,7 +26,9 @@ class User {
     this.personalEvents = [];
   }
 }
-
+/*  -------------------------------------  */
+/* *EVENT RECOMMENDER CLASS* */
+/*  -------------------------------------  */
 class EventRecommender {
   constructor() {
     // All main properties should go here.
@@ -16,8 +37,8 @@ class EventRecommender {
     this.users = [];
   }
 
-  addEvent(name, description, dateTime) {
-    const event = new Event(name, description, dateTime);
+  addEvent(name, dateTime) {
+    const event = new Event(name, dateTime);
     // Adds a new Event to the System
     this.events.push(event);
   }
@@ -30,15 +51,16 @@ class EventRecommender {
 
   saveUserEvent(user, event) {
     //Allow users to save events to a personal Events array.
-    this.users[indexOf(user)].personalEvents.push(this.events[indexOf(event)]);
+    console.log(this.users.indexOf(user))
+    // this.users[this.users.indexOf(user)].personalEvents.push(this.events[this.events.indexOf(event)]);
   }
 
   deleteUser(user) {
-    // Deletes a User from the system
+    // Deletes a User from the system`
     this.users.splice(indexOf(user), 1);
   }
 
-  deleteEvent() {
+  deleteEvent(event) {
     // Deletes the Event from the system
   }
 
@@ -48,4 +70,6 @@ class EventRecommender {
 const recommender = new EventRecommender();
 
 recommender.addUser('Linda','Yoshida');
+recommender.addEvent('Hackathon',1567042200)
+recommender.saveUserEvent('Linda','test')
 console.log(recommender);
