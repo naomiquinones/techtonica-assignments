@@ -3,7 +3,12 @@
 /*  -------------------------------------  */
 class Event {
   constructor(name, dateTime) {
-    (this.name = name), (this.dateTime = dateTime);
+    this.name = name;
+    this.dateTime = dateTime;
+  }
+  getDate() {
+    const FORMAT_TIME = "dddd[,] MMMM Do[,] YYYY [at] h[:]mm a";
+    return moment(this.dateTime, "X").format(FORMAT_TIME);
   }
 }
 /*  -------------------------------------  */
@@ -11,7 +16,8 @@ class Event {
 /*  -------------------------------------  */
 class Ticket {
   constructor(type, price) {
-    (this.type = type), (this.price = price);
+    this.type = type;
+    this.price = price;
   }
 }
 /*  -------------------------------------  */
@@ -42,19 +48,18 @@ class EventRecommender {
     this.events.push(event);
   }
 
-  addUser(firstName, lastName) {
-    const person = new User(firstName, lastName);
+  addUser(firstName, lastName, username) {
+    const person = new User(firstName, lastName, username);
     // Adds a new User to the System
     this.users.push(person);
   }
 
   saveUserEvent(user, event) {
     //Allow users to save events to a personal Events array.
-    console.log(this.users.indexOf(user));
-
-    this.users[this.users.findIndex(element => element === user)].personalEvents.push(event);
-
-    
+    // console.log(this.users.indexOf(user));
+    this.users[
+      this.users.findIndex(element => element === user)
+    ].personalEvents.push(event);
   }
 
   deleteUser(user) {
@@ -67,12 +72,67 @@ class EventRecommender {
     this.events.splice(this.events.findIndex(current => current === event), 1);
   }
 
-  filter() {}
+  filter() {} // use this to refactor finding in the other methods
 }
 
 const recommender = new EventRecommender();
 
-recommender.addUser("Linda", "Yoshida");
+/* ****************** */
+/* test the functions */
+recommender.addUser("Margarita", "Yang", "myang");recommender.addUser("Anwar", "Jones", "anwar");
+recommender.addEvent("Workshop", 1566048600);
+recommender.addEvent("Meetup", 1566349200);
 recommender.addEvent("Hackathon", 1567042200);
 recommender.saveUserEvent("Linda", "test");
 console.log(recommender);
+
+
+
+
+/* use jQuery to add the events to the web page */
+$(document).ready(function() {
+  let html = "";
+  let minPrice = 0;
+  let maxPrice = 500;
+  // loop through the event array
+  $.each(event_array, function(index, item) {
+    // add the item and description inside an li into the html string
+    html += `<li><span class="event">${item.name} - ${
+      item.description
+    } </span> <br>
+    <span class="date">${item.getDate()}</span> <br>
+    <span class="price-search-results">${item.searchTickets(
+      minPrice,
+      maxPrice
+    )}</span><br>
+    <span class="cheap-ticket-ad">Cheapest ticket for this event is "${item.findCheapestTicket(
+      "cheapest"
+    )}"</span></li>`;
+  });
+  // insert resulting html string into #event
+  $("#event").html(html);
+
+  // make minPrice and maxPrice input elements for user
+  let minPriceInput = document.createElement("input");
+  minPriceInput.type = "number";
+  minPriceInput.min = 0;
+  minPriceInput.id = "min-price";
+  minPriceInput.value = minPrice;
+
+  let maxPriceInput = document.createElement("input");
+  maxPriceInput.type = "number";
+  maxPriceInput.min = 0;
+  maxPriceInput.id = "max-price";
+  maxPriceInput.value = maxPrice;
+
+  // make labels for the minPrice and maxPrice elements
+  let minLabel = document.createElement("label");
+  let maxLabel = document.createElement("label");
+  minLabel.htmlFor = "min-price";
+  maxLabel.htmlFor = "max-price";
+  minLabel.textContent = "Minimum price";
+  maxLabel.textContent = "Maximum price";
+
+  // insert inputs for user to specify min and max price
+  $("#event").after(minLabel, minPriceInput, maxLabel, maxPriceInput);
+}); // end jquery

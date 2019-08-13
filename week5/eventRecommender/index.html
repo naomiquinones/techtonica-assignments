@@ -24,14 +24,37 @@
       </header>
       <div class="row">
         <div class="col-sm">
+          <h2>Events</h2>
           <ul id="event"></ul>
         </div>
         <div class="col-sm">
-          2 of 3
+          <h2>Add an event</h2>
+          <form action="">
+            <div class="input-group">
+              <label for="event-name-input">Event Name</label>
+              <input type="text" class="form-control" id="event-name-input">
+            </div>
+            <div class="input-group">
+              <label for="datepicker">Event Date</label>
+              <input type="text" id="datepicker" class="form-control">
+            </div>
+            <input type="submit" class="btn btn-light" value="Add event"></input>
+          </form>          
         </div>
         <div class="col-sm">
-          3 of 3
-        </div>
+            <h2>Add a user</h2>
+            <form action="">
+              <div class="input-group">
+                  <label for="user-firstname-input">First Name</label>
+                  <input type="text" class="form-control" id="user-firstname-input">
+                  <label for="user-lastname-input">Last Name</label>
+                  <input type="text" class="form-control" id="user-lastname-input">
+                  <label for="username-input">Username</label>
+                  <input type="text" class="form-control" id="username-input">
+              </div>
+              <input type="submit" class="btn btn-light" value="Add user"></input>
+            </form>
+          </div>
       </div>
     </div>
   </body>
