@@ -1,0 +1,31 @@
+Objective: Twilio API Explorer- send text message to phone from the Twilio Console
+
+{
+    "sid": "SMaf1d48b6272f4fd1a68a5c12b68c29a2",
+    "date_created": "Thu, 15 Aug 2019 16:05:30 +0000",
+    "date_updated": "Thu, 15 Aug 2019 16:05:30 +0000",
+    "date_sent": null,
+    "account_sid": "AC247750fb28caf6e5ab21461d47973ff9",
+    "to": "+13102547608",
+    "from": "+13236153004",
+    "messaging_service_sid": null,
+    "body": "Sent from your Twilio trial account - Hello, I sent this",
+    "status": "queued",
+    "num_segments": "1",
+    "num_media": "0",
+    "direction": "outbound-api",
+    "api_version": "2010-04-01",
+    "price": null,
+    "price_unit": "USD",
+    "error_code": null,
+    "error_message": null,
+    "uri": "/2010-04-01/Accounts/AC247750fb28caf6e5ab21461d47973ff9/Messages/SMaf1d48b6272f4fd1a68a5c12b68c29a2.json",
+    "subresource_uris": {
+        "media": "/2010-04-01/Accounts/AC247750fb28caf6e5ab21461d47973ff9/Messages/SMaf1d48b6272f4fd1a68a5c12b68c29a2/Media.json"
+    }
+}
+
+
+Objective: Create a TWIML Bin, Host some TwiML with Twilio without having to set up a server
+
+
