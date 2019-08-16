@@ -1,0 +1,35 @@
+Lesson Notes
+abc…	Letters
+123…	Digits
+\d	Any Digit
+\D	Any Non-digit character
+.	Any Character
+\.	Period
+[abc]	Only a, b, or c
+[^abc]	Not a, b, nor c
+[a-z]	Characters a to z
+[0-9]	Numbers 0 to 9
+\w	Any Alphanumeric character
+\W	Any Non-alphanumeric character
+{m}	m Repetitions
+{m,n}	m to n Repetitions
+*	Zero or more repetitions
++	One or more repetitions
+?	Optional character
+\s	Any Whitespace
+\S	Any Non-whitespace character
+^…$	Starts and ends
+(…)	Capture Group
+(a(bc))	Capture Sub-group
+(.*)	Capture all
+(abc|def)	Matches abc or def
+
+// Basic methods
+regex.test(string) // returns true if `string` matches the regex.
+string.replace(regex, replacement) // replace instances of the regex with replacement.
+
+// Advanced methods 
+string.match(regex) // returns the matches between string and regex.
+regex.exec(string)   // returns the matches between string and regex.
+string.search(regex) // returns the index of the first match of regex within string.
+string.split(regex) // splits string at every instance where regex matches.
