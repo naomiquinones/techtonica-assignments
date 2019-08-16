@@ -12,5 +12,9 @@ const deleteIngs = text => {
 }
 
 const isEmail = text => {
-  return text.match(/\w+@\w+\.(\)/) ? true : false;
+  return text.match(/\w+@\w+(\.\D+\.\D+|\.\D+)/) ? true : false;
+}
+
+const extractNames = text => {
+  return text.match(/(\w+)/g)
 }
