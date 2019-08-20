@@ -32,7 +32,7 @@ canGraduateFromTechtonica()
 .catch( error => error.message + ' ' + error.topic)
 ```
 
-### practice-git
+### git
 At some point, this file was only to practice using git.
 
 Now that I know how to make basic changes to my repo in GitHub, I have to practice forking and merging. I have already practiced using the command line and managed to unintentionally delete a local directory, and with help brought it back into existence.
@@ -55,3 +55,4 @@ _italic_
   
 ![alt text for image](http://www.example.com/image.jpg)
 
+Adding inline code blocks such as `source .bashrc`
