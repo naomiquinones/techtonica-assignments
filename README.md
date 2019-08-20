@@ -39,10 +39,11 @@ Now that I know how to make basic changes to my repo in GitHub, I have to practi
 
 ### things I learned about Markdown:
 
-**bold**
-__bold__
-*italic*
-_italic_
+**bold with double asterisks**
+__bold with double underscores__
+
+*italic with single asterisks*
+_italic with single underscores_
 
 ## h2 tag
 
