@@ -35,6 +35,12 @@ canGraduateFromTechtonica()
 ### git
 At some point, this file was only to practice using git.
 
+#### basic git commands:
+`git status`
+`git add filename`
+`git commit -m "description of change"`
+`git push origin master`
+
 Now that I know how to make basic changes to my repo in GitHub, I have to practice forking and merging. I have already practiced using the command line and managed to unintentionally delete a local directory, and with help brought it back into existence.
 
 ### things I learned about Markdown:
