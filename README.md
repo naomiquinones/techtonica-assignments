@@ -4,7 +4,7 @@ Welcome to my Techtonica assignments repo
 ___
 
 ## about
-This repo contains work I've done that is part of the Techtonica curriculum
+This repo contains work I've done while learning the material covered in the Techtonica curriculum
 
 ### e.g. promises
 ```javascript
