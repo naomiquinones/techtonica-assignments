@@ -1,0 +1,184 @@
+Specific Things To Teach
+- callback
+- new Promise(((resolve, reject) => {}))
+- promise.then()
+- Promise.all()
+- async / await
+- done()
+
+promises are similar to but different from jQuery's AJAX object
+fetch (built into most browsers) returns a promise object
+
+
+/* *****************
+*****   Video   ******
+******************* */
+
+/* Callbacks */
+
+Const posts = [
+	{ title: 'Post One', body: 'This is post one'},
+	{ title: 'Post Two', body: 'This is post two' }
+]
+
+function getPosts() {
+	setTimeout( () => {
+		let output = '';
+		posts.forEach( (post, index) => {
+			output += `<li>${post.title} </li>`;
+		});
+		document.body.innerHTML = output;
+	}, 1000);
+}
+
+function createPost(post) {
+	setTimeout( () => {
+		posts.push(post);
+	}, 2000);
+}
+getPosts();
+
+createPost( { title: 'Post Three', body: 'This is post three'});
+
+/*
+	The above won't show Post Three because by the time the createPost function is done running the getPosts function has already finished and the DOM has already been created, so let's make this work asynchronously by adding a callback. See below how we modify the createPost function:
+ */
+
+function createPost(post, callback) {
+	setTimeout( () => {
+		posts.push(post);
+		callback();
+	}, 2000);
+}
+// move getPosts to the newly modified createPost function
+createPost( { title: 'Post Three', body: 'This is post three'}, getPosts);
+
+
+/*******************************
+*****************************
+*******************************/
+/* Promises */
+/* notice the code is similar to above */
+
+Const posts = [
+	{ title: 'Post One', body: 'This is post one'},
+	{ title: 'Post Two', body: 'This is post two' }
+]
+
+function getPosts() {
+	setTimeout( () => {
+		let output = '';
+		posts.forEach( (post, index) => {
+			output += `<li>${post.title} </li>`;
+		});
+		document.body.innerHTML = output;
+	}, 1000);
+}
+
+
+// instead of passing in a callback, we want to return a promise, so modify as so:
+
+function createPost(post) {
+	return new Promise( (resolve, reject) => {
+		setTimeout( () => {
+			posts.push(post);
+
+			const error = false;
+
+			if(!error) {
+				resolve();
+			} else {
+				reject('Error: something went wrong');
+			}
+		}, 2000);
+	});
+}
+
+createPost( { title: 'Post Three', body: 'This is post three' } )
+	.then(getPosts)
+	.catch(err => console.log(err);
+
+// Above shows how to create the promise, but most likely one would be dealing with libraries like Axios, Fetch or Mongoose for MongoDB which already have the promises created so one would only have to deal with the response portion
+
+// Let's see about using Promise.all so don't have to chain a bunch of .then statements if there's a lot of promises
+const promise1 = Promise.resolve('Hello');
+const promise2 = 10;
+const promise3 = new Promise( (resolve,reject) => setTimeout(resolve, 2000, 'Goodbye') );
+
+Promise.all([promise1, promise2, promise3]).then( values => console.log(values) );
+
+// let's add something else:
+
+const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then( res => res.json() );
+
+// fetch is weird because you have to do two .then
+// first the first .then formats the data to JSON
+// next .then gives data
+
+Promise.all([promise1, promise2, promise3, promise4]).then( (values) => console.log(values);
+
+/*******************************
+*****************************
+*******************************/
+/* Async Await */
+/* a more elegant way to handle responses */
+
+Const posts = [
+	{ title: 'Post One', body: 'This is post one'},
+	{ title: 'Post Two', body: 'This is post two' }
+]
+
+function getPosts() {
+	setTimeout( () => {
+		let output = '';
+		posts.forEach( (post, index) => {
+			output += `<li>${post.title} </li>`;
+		});
+		document.body.innerHTML = output;
+	}, 1000);
+}
+
+function createPost(post) {
+	return new Promise( (resolve, reject) => {
+		setTimeout( () => {
+			posts.push(post);
+
+			const error = false;
+
+			if(!error) {
+				resolve();
+			} else {
+				reject('Error: something went wrong');
+			}
+		}, 2000);
+	});
+}
+
+// Async / Await
+
+// must label function with async in order to use await inside
+async function init() {
+	await createPost( { title: 'Post Three', body: 'This is post three' } );
+
+	getPosts();
+}
+
+init();
+
+// let's try using Fetch
+
+// Async / Await / Fetch
+
+async function fetchUsers() {
+	const res = await fetch ('https://jsonplaceholder.typicode.com/users');
+
+	const data = await res.json();
+
+	console.log(data);
+}
+
+fetchUsers();
+
+
+- https://www.youtube.com/watch?v=DHvZLI7Db8E
+  Promise.race allows you to run multiple blocks simultaneously like Promise.all but it returns as soon as the first item is done
