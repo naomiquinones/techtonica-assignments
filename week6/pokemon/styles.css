@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #87cbb0;
+  font-size: 130%;
+  padding: 1em 12.5%;
+}
+h1 {
+  font-size: 2.5em;
+}
+select {
+  background-color: azure;
+  font-size: 2em;
+  color: #459989;
+}
+img {
+  width:100%;
+  max-width: 100%;
+}
