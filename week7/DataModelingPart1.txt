@@ -1,0 +1,40 @@
+Independent Practice
+
+Exercise 1.
+What is the entity?
+	- recipe
+What are the attributes of the entity?
+	- id
+	- name
+	- description
+	- vegetarian
+	- enterDate
+	- mealType
+	- timesMade
+	- source
+What is the primary key of the entity?
+	- id
+What are the data types of the attributes?
+	- integer
+	- text
+	- text
+	- boolean
+	- date
+	- text
+	- integer
+	- text
+Are there other ways you might model this data?
+	- We could have two tables, one for users and one for recipes, and we can use the user id's to insert into the source field
+
+Exercise 2.
+In your own words, define the following terms:
+Entity
+	- a table
+Attribute
+	- columns in the table
+Data type
+	- a type of information
+Primary key
+	- a unique identifier
+Schema
+	- the description of what tables and columns
