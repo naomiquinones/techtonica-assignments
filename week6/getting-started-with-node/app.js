@@ -1,6 +1,19 @@
 const http = require('http');
 const fs = require('fs');
 
+// const I_LOVE = require('./config');
+// the above line prints out I love  { I_LOVE: 'lamp' }
+// below we destructure the config object
+// It's the same as saying:
+// const I_LOVE = require('./config').I_LOVE;
+const { I_LOVE } = require('./config');
+
+// my own new variable below:
+const { TECHT } = require('./config');
+
+console.log("I love", I_LOVE);
+console.log("Attention,", TECHT);
+
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -17,7 +30,7 @@ fs.readFile('index.html', (err,html) => {
   });
 
   server.listen(port, hostname, () => {
-    console.log('Server running on port ' + port + '...');
+    console.log('Our awesome testing server running on port ' + port + '...');
   });
 
 
