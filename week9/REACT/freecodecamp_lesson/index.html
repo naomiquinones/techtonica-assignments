@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React mini-lesson from freeCodeCamp</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>  
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>  
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script></head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // class Greeting extends React.Component {
+    //   render() {
+    //     return <h1>Made with React</h1>
+    //   }
+    // }
+    // ReactDOM.render(
+    //   <Greeting />,
+    //   document.getElementById('root')
+    // );
+/* ************************* */
+    // class GreetingWithProp extends React.Component {
+    //   render() {
+    //     return <h2>Also made with React {this.props.message}!</h2>
+    //   }
+    // }
+    // ReactDOM.render(
+    //   <GreetingWithProp message=' with a prop' />,
+    //   document.getElementById('root')
+    // );
+/* ************************* */
+
+    class GreetingWithState extends React.Component {
+      constructor() {
+        super();
+        this.state = {
+          message: ' with state'
+        };
+        this.updateMessage = this.updateMessage.bind(this); //bind this to updateMessage in order to access
+      }
+
+      updateMessage() {
+        this.setState({
+          message: ' from changed state'
+        });
+      }
+      
+      render() {
+        return (
+          <div>
+            <h1>This too is made in React {this.state.message}!</h1>
+            <button onClick={this.updateMessage}>Click Me!</button>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(
+      <GreetingWithState message='test'/>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
