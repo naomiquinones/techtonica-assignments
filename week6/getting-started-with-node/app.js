@@ -9,10 +9,10 @@ const fs = require('fs');
 const { I_LOVE } = require('./config');
 
 // my own new variable below:
-const { TECHT } = require('./config');
+const { TCTNC } = require('./config');
 
 console.log("I love", I_LOVE);
-console.log("Attention,", TECHT);
+console.log("Attention,", TCTNC);
 
 const hostname = '127.0.0.1';
 const port = 3000;
