@@ -29,5 +29,5 @@ app.use('/users', usersRouter);
 
 
 app.listen(port, () => {
-  console.log(`Eventonica 2 server running on port: ${port}`);
+  console.log(`\n-----\n-------  Eventonica 2 server running on port: ${port}  -------`);
 })
