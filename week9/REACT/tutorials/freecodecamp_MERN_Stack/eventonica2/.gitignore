@@ -24,3 +24,6 @@ yarn-error.log*
 
 # I added the below:
 .env
+node_modules
+backend/node_modules
+backend/.env
