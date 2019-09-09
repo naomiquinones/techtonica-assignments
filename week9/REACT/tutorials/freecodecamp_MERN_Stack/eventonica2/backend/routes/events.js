@@ -36,6 +36,10 @@ router.route('/add').post((req, res) => {
 
 // update a specific event
 // ---------- using post and mongoose save function
+// wrapped Date.parse around req.body.date on line 47
+// to try to fix a bug that breaks when date format
+// is not recognized when trying to update some items
+
 router.route('/update/:id').post((req, res) => {
   Event.findById(req.params.id)
     .then(event => {
