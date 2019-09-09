@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 
 export default class CreateEvent extends Component {
   constructor(props) {
@@ -22,10 +23,19 @@ export default class CreateEvent extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      users: ['fake user hardcoded into setState in componentDidMount'],
-      username: 'test user'
-    })
+    // this.setState({
+    //   users: ['fake user hardcoded into setState in componentDidMount'],
+    //   username: 'test user'
+    // })
+    axios.get('http://localhost:5000/users/')
+      .then(res => {
+        if (res.data.length > 0) {
+          this.setState({
+            users: res.data.map(user => user.username),
+            username: res.data[0].username
+          })
+        }
+      });
   }
 
   onChangeUsername(e) {
@@ -64,11 +74,14 @@ export default class CreateEvent extends Component {
 
     console.log(event)
 
+    axios.post('http://localhost:5000/events/add', event)
+      .then(res => console.log(res.data));
+
     window.location = '/';
   }
   render() {
     return (
-      <section>
+      <section className="create-event">
         <h3>Create New Event</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
