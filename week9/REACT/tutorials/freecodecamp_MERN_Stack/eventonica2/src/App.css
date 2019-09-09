@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 15s linear;
+  animation: App-logo-spin infinite 35s linear;
   height: 40vmin;
   pointer-events: none;
 }
@@ -19,16 +19,32 @@
   color: white;
   animation: pulse 15s infinite;
 }
-
+main {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+.event-list {
+  background-color: rgb(255, 160, 155)
+}
+.create-user {
+  background-color: rgb(255, 156, 199)
+}
+.create-event {
+  background-color: rgb(205, 255, 189)
+}
+.edit-event {
+  background-color:rgb(255, 236, 125)
+}
 @keyframes pulse {
   0% {
-    background-color: rgb(255, 236, 125);
+    background-color: rgb(250, 255, 153);
   }
   50% {
-    background-color: rgb(255, 126, 119);
+    background-color: rgb(255, 183, 119);
   }
   100% {
-    background-color: rgb(255, 236, 125);
+    background-color: rgb(250, 255, 153);
   }
 }
 
