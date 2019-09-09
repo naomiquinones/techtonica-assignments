@@ -42,7 +42,7 @@ router.route('/update/:id').post((req, res) => {
       event.username = req.body.username;
       event.keywords = req.body.keywords;
       event.location = req.body.location;
-      event.date = req.body.date;
+      event.date = Date.parse(req.body.date);
 
       event.save() // use mongoose save function
         .then(() => res.json('Event updated'))
