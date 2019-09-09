@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PasswordMask from 'react-password-mask';
+import axios from 'axios';
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -45,6 +47,9 @@ export default class CreateUser extends Component {
 
     console.log(user)
 
+    axios.post('http://localhost:5000/users/add', user)
+      .then(res => console.log(res.data));
+
     this.setState({
       username: ''
     })
@@ -52,7 +57,7 @@ export default class CreateUser extends Component {
 
   render() {
     return (
-      <div>
+      <div className="create-user">
         <h3>Create New User</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -67,12 +72,20 @@ export default class CreateUser extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="password-input">Password: </label>
-            <input type="text"
+            {/* <input type="text"
               required
               className="form-control"
               value={this.state.password}
               onChange={this.onChangePassword}
               id="password-input"
+            /> */}
+            <PasswordMask 
+              id="password-input"
+              required
+              className="form-control"
+              value={this.state.password}
+              onChange={this.onChangePassword}
+              // useVendorStyles={false}
             />
           </div>
           <div className="form-group">
