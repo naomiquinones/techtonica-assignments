@@ -19,6 +19,13 @@ export default class CreateEvent extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      users: ['test user'],
+      username: 'test user'
+    })
+  }
+
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
@@ -60,7 +67,27 @@ export default class CreateEvent extends Component {
   render() {
     return (
       <section>
-        <p>You are looking at the Create Event component.</p>
+        <h3>Create New Event</h3>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label htmlFor="username-select">Username: </label>
+            <select ref="userInput"
+              required
+              className="form-control"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+              id="username-select">
+                {
+                  this.state.users.map(function(user) {
+                    return <option
+                      key={user}
+                      value={user}>{user}
+                      </option>;
+                  })
+                }
+              </select>
+          </div>
+        </form>
       </section>
     );
   }
