@@ -21,7 +21,7 @@ export default class CreateEvent extends Component {
 
   componentDidMount() {
     this.setState({
-      users: ['test user'],
+      users: ['fake user hardcoded into setState in componentDidMount'],
       username: 'test user'
     })
   }
