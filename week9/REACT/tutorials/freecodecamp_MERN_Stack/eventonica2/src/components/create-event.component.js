@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateEvent extends Component {
   constructor(props) {
@@ -53,14 +55,14 @@ export default class CreateEvent extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const exercise = {
+    const event = {
       username: this.state.username,
       keywords: this.state.keywords,
       location: this.state.location,
       date: this.state.date
     }
 
-    console.log(exercise)
+    console.log(event)
 
     window.location = '/';
   }
@@ -86,6 +88,40 @@ export default class CreateEvent extends Component {
                   })
                 }
               </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="keywords-input">Keywords: </label>
+            <input type="text"
+              required
+              className="form-control"
+              value={this.state.keywords}
+              onChange={this.onChangeKeywords}
+              id="keywords-input"
+              />
+          </div>
+          <div className="form-group">
+            <label htmlFor="location-input">Location: </label>
+            <input type="text"
+              required
+              className="form-control"
+              value={this.state.location}
+              onChange={this.onChangeLocation}
+              id="location-input"
+              />
+          </div>
+          <div className="form-group">
+            <label htmlFor="date-input">Date: </label>
+            <div>
+              <DatePicker
+                selected={this.state.date}
+                onChange={this.onChangeDate}
+                id="date-input"
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <input type="submit" value="Create Event" className="btn btn-primary" />
           </div>
         </form>
       </section>
