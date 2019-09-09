@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+It is based on a tutorial from freeCodeCamp called "Learn the MERN Stack"
 # Eventonica 2 With React
 
 This page will eventually describe more of what is going on with this app
