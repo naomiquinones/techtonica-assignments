@@ -61,6 +61,6 @@ _italic with single underscores_
   * sublist item
   * another sublist item
   
-![alt text for image](http://www.example.com/image.jpg)
+![screen shot of my terminal](Naomi_Quinones-bash-profile.png)
 
 Adding inline code blocks such as `source .bashrc`
