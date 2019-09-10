@@ -23,19 +23,19 @@ export default class CreateEvent extends Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   users: ['fake user hardcoded into setState in componentDidMount'],
-    //   username: 'test user'
-    // })
+ 
     axios.get('http://localhost:5000/users/')
       .then(res => {
         if (res.data.length > 0) {
           this.setState({
             users: res.data.map(user => user.username),
             username: res.data[0].username
-          })
+          });
         }
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   onChangeUsername(e) {
