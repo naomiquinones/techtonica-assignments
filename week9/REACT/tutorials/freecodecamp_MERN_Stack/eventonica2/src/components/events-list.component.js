@@ -35,7 +35,7 @@ export default class EventsList extends Component {
   }
 
   deleteEvent(id) {
-    axios.delete('http://localhost:5000/events' + id)
+    axios.delete('http://localhost:5000/events/' + id)
       .then(res => console.log(res.data));
 
     this.setState({
@@ -45,7 +45,7 @@ export default class EventsList extends Component {
 
   EventsList() {
     return this.state.events.map(currentEvent => {
-      return <Event event={currentEvent} deleteEvent={this.deleteEvent} key={currentEvent.id}></Event>
+      return <Event event={currentEvent} deleteEvent={this.deleteEvent} key={currentEvent._id} />
     })
   }
 
