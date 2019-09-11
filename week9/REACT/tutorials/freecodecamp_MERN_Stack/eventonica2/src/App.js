@@ -23,9 +23,11 @@ function App() {
     <div className="container">
       <header className="page-header">
         <h1>
+          <div className="logo-container">
+            <img src={logo} className="App-logo" alt="logo" />
+          </div>
           Eventonica 2, with React
         </h1>
-        <img src={logo} className="App-logo" alt="logo" />
       </header>
       {/* Map url paths to components that load on the page */}
       <Router>

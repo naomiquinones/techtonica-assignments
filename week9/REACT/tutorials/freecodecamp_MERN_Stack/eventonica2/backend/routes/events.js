@@ -20,8 +20,9 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const keywords = req.body.keywords;
   const location = req.body.location;
-  const date = Date.parse(req.body.date);
-
+  // const date = Date.parse(req.body.date);
+  const date = req.body.date;
+  
   const newEvent = new Event({
     username,
     keywords,

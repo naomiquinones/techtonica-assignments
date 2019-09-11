@@ -29,12 +29,12 @@ export default class EditEvent extends Component {
           username: res.data.username,
           keywords: res.data.keywords,
           location: res.data.location,
-          date: new Date(res.data.date)
+          date: new Date(res.data.date.toLocaleString())
         })
       })
       .catch(err => {
         console.log(err);
-      })
+      });
     axios.get('http://localhost:5000/users/')
       .then(res => {
         if (res.data.length > 0) {
@@ -43,6 +43,9 @@ export default class EditEvent extends Component {
             username: res.data[0].username
           })
         }
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
@@ -87,6 +90,7 @@ export default class EditEvent extends Component {
 
     window.location = '/';
   }
+  
   render() {
     return (
       <section className="edit-event">

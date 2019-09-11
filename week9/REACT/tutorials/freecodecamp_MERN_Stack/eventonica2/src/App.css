@@ -4,8 +4,14 @@
 
 .App-logo {
   animation: App-logo-spin infinite 35s linear;
-  height: 40vmin;
+  /* height: 40vmin; */
   pointer-events: none;
+  max-width: 100%;
+}
+.logo-container {
+  float: left;
+  margin-right: 1%;
+  width: 5%;
 }
 
 .page-header {
@@ -25,7 +31,7 @@ main {
   flex-direction: column;
 }
 .event-list {
-  background-color: rgb(255, 160, 155)
+  background-color: rgb(241, 252, 255)
 }
 .create-user {
   background-color: rgb(255, 156, 199)
@@ -38,13 +44,13 @@ main {
 }
 @keyframes pulse {
   0% {
-    background-color: rgb(250, 255, 153);
+    background-color: rgb(255, 245, 153);
   }
   50% {
-    background-color: rgb(255, 183, 119);
+    background-color: rgb(215, 255, 140);
   }
   100% {
-    background-color: rgb(250, 255, 153);
+    background-color: rgb(250, 245, 153);
   }
 }
 
@@ -56,17 +62,17 @@ main {
   0% {
     /*transform: scale(1);*/
     /* transform-origin: center center; */
-    transform: rotate(-360deg) scale(1);
+    transform: rotate(-360deg) scale(1.35);
   }
   50% {
     /*transform: scale(1.1);*/
     /* transform-origin: center center; */
-    transform: rotate(-180deg) scale(0.1);
+    transform: rotate(-180deg) scale(0.75);
   }
   100% {
     /*transform: scale(1);*/
     /* transform-origin: center center; */
-    transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1.35);
   }
   
   
