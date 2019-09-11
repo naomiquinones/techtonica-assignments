@@ -20,8 +20,8 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const keywords = req.body.keywords;
   const location = req.body.location;
-  // const date = Date.parse(req.body.date);
-  const date = req.body.date;
+  const date = Date.parse(req.body.date);
+  // const date = req.body.date;
   
   const newEvent = new Event({
     username,
@@ -37,17 +37,19 @@ router.route('/add').post((req, res) => {
 
 // update a specific event
 // ---------- using post and mongoose save function
-// wrapped Date.parse around req.body.date on line 47
-// to try to fix a bug that breaks when date format
+// wrapped Date.parse around req.body.date to try
+// to fix a bug that breaks when date format
 // is not recognized when trying to update some items
 
 router.route('/update/:id').post((req, res) => {
   Event.findById(req.params.id)
     .then(event => {
+      console.log(event);
       event.username = req.body.username;
       event.keywords = req.body.keywords;
       event.location = req.body.location;
       event.date = Date.parse(req.body.date);
+      // event.date = req.body.date;
 
       event.save() // use mongoose save function
         .then(() => res.json('Event updated'))
