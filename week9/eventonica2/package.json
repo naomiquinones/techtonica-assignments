@@ -15,7 +15,7 @@
     "react-password-mask": "^3.3.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.3"
   },
   "scripts": {
     "start": "PORT=5010 react-scripts start",

@@ -30,17 +30,25 @@ main {
   display: flex;
   flex-direction: column;
 }
-.event-list {
+.event-list, .create-event, .create-user, .edit-event {
+  background-color: #fefefe;
+}
+main section h3 {
+  font-weight: bold;
+  padding: 1em 1%;
+}
+
+.event-list h3{
   background-color: rgb(241, 252, 255)
 }
-.create-user {
+.create-user  h3{
   background-color: rgb(255, 156, 199)
 }
-.create-event {
+.create-event  h3{
   background-color: rgb(205, 255, 189)
 }
-.edit-event {
-  background-color:rgb(255, 236, 125)
+.edit-event  h3{
+  background-color: rgb(255, 236, 125)
 }
 @keyframes pulse {
   0% {

@@ -51,7 +51,7 @@ export default class EventsList extends Component {
 
   render() {
     return (
-      <div className="event-list">
+      <section className="event-list">
         <h3>Events List</h3>
         <table className="table">
           <thead className="thead-light">
@@ -67,7 +67,7 @@ export default class EventsList extends Component {
             { this.EventsList() }
           </tbody>
         </table>
-      </div>
+      </section>
     );
   }
 }
