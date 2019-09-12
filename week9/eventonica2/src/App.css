@@ -25,6 +25,14 @@
   color: white;
   animation: pulse 15s infinite;
 }
+
+.page-header h1 {
+  text-shadow: 1px 1px 0 #48a,
+              -1px 1px 0 #48a,
+              1px -1px 0 #48a,
+              -1px -1px 0 #48a;
+  letter-spacing: 2px;
+}
 main {
   min-height: 60vh;
   display: flex;
