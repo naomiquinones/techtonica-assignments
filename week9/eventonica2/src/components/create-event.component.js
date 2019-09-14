@@ -77,7 +77,7 @@ export default class CreateEvent extends Component {
     axios.post('http://localhost:5000/events/add', event)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    window.location = '/list';
   }
   render() {
     return (

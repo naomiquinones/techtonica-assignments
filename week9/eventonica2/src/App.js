@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 // import the components that will load below via the router
 import Navbar from "./components/navbar.component";
+import EventSearch from "./components/event-search.component"
 import EventsList from "./components/events-list.component";
 import EditEvent from "./components/edit-event.component";
 import CreateEvent from "./components/create-event.component";
@@ -33,7 +34,8 @@ function App() {
       <Router>
         <Navbar />
         <main id="content">
-          <Route path="/" exact component={EventsList} />
+          <Route path="/" exact component={EventSearch} />
+          <Route path="/list" component={EventsList} />
           <Route path="/edit/:id" component={EditEvent} />
           <Route path="/create" component={CreateEvent} />
           <Route path="/user" component={CreateUser} />

@@ -27,7 +27,6 @@ const usersRouter = require('./routes/users');
 app.use('/events', eventsRouter);
 app.use('/users', usersRouter);
 
-
 app.listen(port, () => {
   console.log(`\n-----\n-------  Eventonica 2 server running on port: ${port}  -------`);
 })
