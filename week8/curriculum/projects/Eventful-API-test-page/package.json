@@ -9,12 +9,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.2"
   },
   "dependencies": {
     "eventful-node": "^1.1.1",
     "express": "^4.17.1",
+    "hawk": "^7.0.10",
+    "hoek": "^6.1.3",
     "inquirer": "^7.0.0",
-    "pg": "^7.12.1"
+    "mime": "^2.4.4",
+    "pg": "^7.12.1",
+    "request": "^2.88.0",
+    "tunnel-agent": "^0.6.0",
+    "unirest": "^0.6.0"
   }
 }

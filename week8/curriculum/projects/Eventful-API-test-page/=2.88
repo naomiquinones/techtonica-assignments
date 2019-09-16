@@ -1,0 +1,4 @@
++ request@2.88.0
+updated 1 package and audited 2648 packages in 2.485s
+found 10 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details

@@ -1,0 +1,4 @@
++ tunnel-agent@0.6.0
+updated 1 package and audited 2575 packages in 1.728s
+found 10 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
