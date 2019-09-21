@@ -30,7 +30,7 @@ const client = new eventful.Client(eventfulKey);
           }
         }
 
-        resolve(finalEventData || resultEvent);
+        resolve( finalEventData );
       
       } else {
         reject('--*-- --*-- oops\n --*-- eventfulPromise failed: '+err);
