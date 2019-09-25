@@ -6,6 +6,19 @@ import axios from 'axios';
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+  // like redux, evaluate action type
+  switch(action.type){
+    case 'SEARCH_TRACKS':
+      return {
+        ...state,
+        track_list: action.payload,
+        heading: 'Search Results'
+      };
+    default:
+      return state;
+  }
+}
 // we are exporting a class but not default
 // because we are also exporting a consumer
 
@@ -21,7 +34,8 @@ const Context = React.createContext();
 export class Provider extends Component {
   state = {
     track_list: [],
-    heading: 'Top 10 Tracks'
+    heading: 'Top 10 Tracks',
+    dispatch: action => this.setState(state => reducer(state, action))
   }
 
   componentDidMount(){
