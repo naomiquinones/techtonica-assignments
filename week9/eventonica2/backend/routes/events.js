@@ -5,7 +5,7 @@ const eventfulSearch = require('../eventfulSearch.js');
 // use eventful API to get event data
 router.route('/').post((req, res) => {
   console.log(req);
-  eventfulSearch(req)
+  eventfulSearch(req.body)
       .then(res => {
         console.log(res.data);
         // display another item to let user sign up to go to this event
@@ -75,7 +75,7 @@ router.route('/update/:id').post((req, res) => {
 // delete a specific event from mongoDB Atlas database
 router.route('/:id').delete((req, res) => {
   Event.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Event deleted.'))
+    .then(() => res.json('Event deleted:'+req.params.id))
     .catch(err => res.status(400).json('Error deleting this event: ' + err)); // catch findByIdAndDelete error, must use '+', not ',' to concatenate
 });
 

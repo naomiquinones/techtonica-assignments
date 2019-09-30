@@ -15,4 +15,4 @@ It runs on port 5000
 
 The front end uses React with Bootstrap to make things appear on the page. These components will respond to user input and connect to the API endpoints defined in the back end server.
 
-Open [http://localhost:5010](http://localhost:5010) to view it in the browser.
+Run the client on [http://localhost:5010](http://localhost:5010) to view it in the browser.

@@ -8,9 +8,16 @@ const client = new eventful.Client(eventfulKey);
  module.exports = function(optionsObj){
   return new Promise((resolve, reject) => {
     console.log("\n *-*-*-*-*-*-*\n Searching\n");
+
+    // optionsObj = {keywords: "rock"}
+
+    console.log("\n\n optionsObj is: ",optionsObj,"\n\n-*-*-\n Finished logging");
+   
     client.searchEvents(optionsObj, (err, data) => {
+
       if(!err){
         let resultEvent = data.search.events.event;
+        // console.log("resultEvent is: ", resultEvent);
         if (data.search.total_items === 0 || data.search.total_items === '0') {
           console.log('Nothing found');
           resolve('0 events');
@@ -28,9 +35,9 @@ const client = new eventful.Client(eventfulKey);
             location: resultEvent[0].venue_name,
             date: resultEvent[0].start_time
           }
+          resolve( finalEventData );
         }
 
-        resolve( finalEventData );
       
       } else {
         reject('--*-- --*-- oops\n --*-- eventfulPromise failed: '+err);
