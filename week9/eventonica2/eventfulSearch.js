@@ -1,6 +1,6 @@
 require('dotenv').config();
 const eventfulKey = process.env.EVENTFUL;
-const eventful = require('../backend/node_modules/eventful-node');
+const eventful = require('eventful-node');
 const client = new eventful.Client(eventfulKey);
 
  // export a function that searches Eventful via its API and displays results
