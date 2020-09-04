@@ -1,8 +1,7 @@
-let doingWeek6Work = true;
+let doingWeek6Work = false;
 let learnedGitBasics = true;
 
-const week6IsDone = () => {
-  return new Promise( (resolve,reject) => {
+const week6IsDone = new Promise( (resolve,reject) => {
     setTimeout( () =>{
       if(doingWeek6Work) {
         reject({text:'Still doing Week 6 work'})
@@ -11,10 +10,9 @@ const week6IsDone = () => {
       }
     }, 8000)
   });
-}
 
-const didGit = () => {
-  return new Promise( (resolve,reject) => {
+
+const didGit = new Promise( (resolve,reject) => {
     setTimeout( () => {
       if(learnedGitBasics) {
         resolve('I git it');
@@ -23,23 +21,21 @@ const didGit = () => {
       }
     }, 3500);
   });
-}
 
-const doSomething = () => {
-  return new Promise( (resolve,reject) => {
+const doSomething = new Promise( (resolve,reject) => {
     setTimeout( () => {
       return learnedGitBasics && !doingWeek6Work ? resolve('OK now do week 7 and catch up on the rest') : reject('What does, "Nose to the grindstone" mean?')
     }, 250);
   });
-}
-
 
 /* 
 
-The way this is currently structured, you are passing an array of -functions- to Promise.all, so it is in fact showing you the name of each function (vs the returned value of each function)
+Promise.all accepts an array of Promises.
+
+In this version (2), we are providing an array of variables each of which is assigned a value that is a Promise
 
 */
 
 Promise.all([week6IsDone,didGit,doSomething])
 .then(values => console.log(values))
-.catch(reject => console.log(message));
+.catch(reject => console.log(reject));
