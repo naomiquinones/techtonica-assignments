@@ -5,8 +5,8 @@ const app = require('./app');
   connection.connect((err) =>{
     if (err) throw err;
 
-     console.log('Welcome to Eventonica')
-    console.log("connected as Administrator");
+     console.log('-*-*-*-*-*-*-*-*-*-*\n-*-*-*-*-*-*\n\nWelcome to Eventonica\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*')
+    console.log("-*-*\nconnected as Administrator\n-*-*");
 
      app.startQuestion(()=>{ connection.end() });
   })

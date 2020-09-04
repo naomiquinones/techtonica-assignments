@@ -14,8 +14,8 @@
     "dotenv": "^8.2.0",
     "eventful-node": "^1.1.1",
     "express": "^4.17.1",
-    "mongoose": "^5.9.25",
-    "npm-check-updates": "^7.0.2"
+    "mongoose": "^5.10.3",
+    "npm-check-updates": "^8.0.5"
   },
   "devDependencies": {
     "cryptiles": "^4.1.3",
