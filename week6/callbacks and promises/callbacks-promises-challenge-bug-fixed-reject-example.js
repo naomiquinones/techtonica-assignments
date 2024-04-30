@@ -33,13 +33,16 @@ const doSomething = () => {
   });
 }
 
-
 /* 
 
-The way this is currently structured, you are passing an array of -functions- to Promise.all, so it is in fact showing you the name of each function (vs the returned value of each function)
+In this edit, I changed each variable to be the 'executed' version of each function which will return the Promise as you probably intended.
+
+I also fixed the issue of 'message' being incorrect in now line 48
+
+Notice however that you only see the reject message (line 31).  This is an important rule.  If 'any' of the promises processed by Promise.all reject, then you will only get that reject as a result. (even as it is still waiting on other promises to resolve).  Try it!
 
 */
 
-Promise.all([week6IsDone,didGit,doSomething])
+Promise.all([week6IsDone(),didGit(),doSomething()])
 .then(values => console.log(values))
-.catch(reject => console.log(message));
+.catch(reject => console.log(reject));

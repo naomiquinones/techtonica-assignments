@@ -1,4 +1,4 @@
-let doingWeek6Work = true;
+let doingWeek6Work = false;
 let learnedGitBasics = true;
 
 const week6IsDone = () => {
@@ -33,13 +33,14 @@ const doSomething = () => {
   });
 }
 
-
 /* 
 
-The way this is currently structured, you are passing an array of -functions- to Promise.all, so it is in fact showing you the name of each function (vs the returned value of each function)
+Promise.all accepts an array of Promises.
+
+In this version, we are providing an array of executed functions - each of which returns a promise
 
 */
 
-Promise.all([week6IsDone,didGit,doSomething])
+Promise.all([week6IsDone(),didGit(),doSomething()])
 .then(values => console.log(values))
-.catch(reject => console.log(message));
+.catch(reject => console.log(reject));
